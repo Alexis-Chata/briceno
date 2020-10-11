@@ -1,3 +1,12 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+.medio-screen {
+    min-height: 50vh
+}
+
+.fondo_briceno {
+    padding: 15px;
+    border-radius: 15px;
+    background: linear-gradient(to top, #41b6e6 0%, #00205b 100%);
+}

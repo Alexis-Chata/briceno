@@ -70,7 +70,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function adminlte_desc()
     {
-        return 'Es un buen tipo.';
+        return 'Briceño.';
     }
 
     public function adminlte_profile_url()

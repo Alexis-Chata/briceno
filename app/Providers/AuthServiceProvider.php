@@ -25,6 +25,11 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('manage-blog', function($user){
+            if($user->hasPermission('profile-read')){
+                return true;
+            }
+            return false;
+        });
     }
 }
