@@ -23,7 +23,7 @@
             <input type="file" name="file" required class="form-control-file">
         </div>
         <div class="p-3">
-            <button type="submit" class="btn btn-primary mb-2">Buscar</button>
+            <button type="submit" class="btn btn-primary mb-2">Importar</button>
         </div>
     </form>
 

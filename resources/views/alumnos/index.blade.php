@@ -40,15 +40,15 @@
                         <h2 class="mx-auto">Resultado...</h2>
                         @if (isset($alumnos[0]->nombres))
                         @foreach ($alumnos as $alumno)
-                            <p>Nombre: {{ $alumno->nombres ." ". $alumno->apellidos }}</p>
-                            <p>Correo: {{ $alumno->email }}</p>
-                            <p>Campus: <a href="{{ $alumno->campus1 }}">{{ $alumno->campus1 }}</a></p>
+                            <p><b>Nombre: </b>{{ $alumno->nombres ." ". $alumno->apellidos }}</p>
+                            <p><b>Correo: </b>{{ $alumno->email }}</p>
+                            <p><b>Campus: </b><a href="{{ $alumno->campus1 }}">{{ $alumno->campus1 }}</a></p>
                             @if ($alumno->campus2)
-                                <p>Campus: <a href="{{ $alumno->campus2 }}">{{ $alumno->campus2 }}</a></p>
+                                <p><b>Campus: </b><a href="{{ $alumno->campus2 }}">{{ $alumno->campus2 }}</a></p>
                             @endif
 
                             @if ($alumno->campus3)
-                                <p>Campus: <a href="{{ $alumno->campus3 }}">{{ $alumno->campus3 }}</a></p>
+                                <p><b>Campus: </b><a href="{{ $alumno->campus3 }}">{{ $alumno->campus3 }}</a></p>
                             @endif
 
                             <a class="btn btn-primary" href="{{ route('alumnos.edit', $alumno->id) }}">Editar</a>
