@@ -29,7 +29,8 @@ class AlumnosController extends Controller
     public function create()
     {
         $action = route('alumnos.guardar');
-        return view('alumnos.crear')->with(compact('action'));
+        $alumno = new Alumno();
+        return view('alumnos.crear')->with(compact('action', 'alumno'));
         //return $action;
     }
 
@@ -93,7 +94,11 @@ class AlumnosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $alumno = Alumno::find($id);
+        $put = True;
+        $action = route('alumnos.update', $id);
+
+        return view('alumnos.actualizar')->with(compact('alumno', 'action', 'put'));
     }
 
     /**
@@ -105,7 +110,17 @@ class AlumnosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $alumno = Alumno::find($id);
+        $alumno->nombres = $request->input('nombres');
+        $alumno->apellidos = $request->input('apellidos');
+        $alumno->dni = $request->input('dni');
+        $alumno->email = $request->input('email');
+        $alumno->campus1 = $request->input('campus1');
+        $alumno->campus2 = $request->input('campus2');
+        $alumno->campus3 = $request->input('campus3');
+        $alumno->save();
+
+        return redirect()->route('alumnos.index');
     }
 
     /**

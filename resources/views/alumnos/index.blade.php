@@ -38,6 +38,7 @@
                 <div class="medio-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
                     <div class="w-min-content px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
                         <h2 class="mx-auto">Resultado...</h2>
+                        @if (isset($alumnos[0]->nombres))
                         @foreach ($alumnos as $alumno)
                             <p>Nombre: {{ $alumno->nombres ." ". $alumno->apellidos }}</p>
                             <p>Correo: {{ $alumno->email }}</p>
@@ -49,7 +50,12 @@
                             @if ($alumno->campus3)
                                 <p>Campus: <a href="{{ $alumno->campus3 }}">{{ $alumno->campus3 }}</a></p>
                             @endif
+
+                            <a class="btn btn-primary" href="{{ route('alumnos.edit', $alumno->id) }}">Editar</a>
                         @endforeach
+                        @else
+                <p>No encontrado</p>
+                @endif
                     </div>
                 </div>
             @endif
