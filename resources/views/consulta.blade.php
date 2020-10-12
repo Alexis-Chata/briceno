@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <div class="medio-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
+    <div class="medio-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
         <div>
             <x-jet-authentication-card-logo />
         </div>
@@ -32,7 +32,7 @@
     </div>
 
     @if (!empty($alumnos))
-        <div class="medio-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
+        <div class="medio-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
             <div class="w-full sm:max-w-md px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg text-center">
                 <h2 class="mx-auto my-4"><b>Resultado...</b></h2>
                 @if (isset($alumnos[0]->nombres))

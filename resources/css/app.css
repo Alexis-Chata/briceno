@@ -10,3 +10,8 @@
     border-radius: 15px;
     background: linear-gradient(to top, #41b6e6 0%, #00205b 100%);
 }
+
+.fondo_briceno_0 {
+    background: linear-gradient(to top, #41b6e6 0%, #00205b 100%);
+    background-attachment: fixed;
+}
