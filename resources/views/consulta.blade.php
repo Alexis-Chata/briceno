@@ -24,8 +24,7 @@
 
                 <div class="flex items-center justify-end mt-4">
                     <button type="submit"
-                        class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150 ml-4">Iniciar
-                        Sesion</button>
+                        class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150 ml-4">Consultar</button>
                 </div>
 
             </form>
@@ -34,20 +33,30 @@
 
     @if (!empty($alumnos))
         <div class="medio-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-            <div class="w-min-content px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-                <h2 class="mx-auto">Resultado...</h2>
-                @foreach ($alumnos as $alumno)
-                    <p>Nombre: {{ $alumno->nombres . ' ' . $alumno->apellidos }}</p>
-                    <p>Correo: {{ $alumno->email }}</p>
-                    <p>Campus: <a href="{{ $alumno->campus1 }}">{{ $alumno->campus1 }}</a></p>
-                    @if ($alumno->campus2)
-                        <p>Campus: <a href="{{ $alumno->campus2 }}">{{ $alumno->campus2 }}</a></p>
-                    @endif
+            <div class="w-full sm:max-w-md px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg text-center">
+                <h2 class="mx-auto my-4"><b>Resultado...</b></h2>
+                @if (isset($alumnos[0]->nombres))
+                    @foreach ($alumnos as $alumno)
+                        <p class="font-black">Nombre:</p>
+                        <p>{{ $alumno->nombres . ' ' . $alumno->apellidos }}</p>
+                        <p class="font-black">Correo:</p>
+                        <p>{{ $alumno->email }}</p>
+                        <p class="font-black">Campus:</p>
+                        <a href="{{ $alumno->campus1 }}">{{ $alumno->campus1 }}</a></p>
+                        @if ($alumno->campus2)
+                            <p class="font-black">Campus:</p>
+                            <a href="{{ $alumno->campus2 }}">{{ $alumno->campus2 }}</a></p>
+                        @endif
 
-                    @if ($alumno->campus3)
-                        <p>Campus: <a href="{{ $alumno->campus3 }}">{{ $alumno->campus3 }}</a></p>
-                    @endif
-                @endforeach
+                        @if ($alumno->campus3)
+                            <p class="font-black">Campus:</p>
+                            <a href="{{ $alumno->campus3 }}">{{ $alumno->campus3 }}</a></p>
+                        @endif
+                    @endforeach
+                @else
+                <p>No encontrado</p>
+                @endif
+
             </div>
         </div>
     @endif
