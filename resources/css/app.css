@@ -13,5 +13,10 @@
 
 .fondo_briceno_0 {
     background: linear-gradient(to top, #41b6e6 0%, #00205b 100%);
+    background-repeat: no-repeat;
     background-attachment: fixed;
+}
+
+.fondo_color {
+    background-color: #41b6e6;
 }
