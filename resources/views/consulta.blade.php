@@ -52,6 +52,18 @@
                             <p class="font-black">Campus:</p>
                             <a href="{{ $alumno->campus3 }}">{{ $alumno->campus3 }}</a></p>
                         @endif
+                        @if ($alumno->campus4)
+                            <p class="font-black">Campus:</p>
+                            <a href="{{ $alumno->campus4 }}">{{ $alumno->campus4 }}</a></p>
+                        @endif
+                        @if ($alumno->campus5)
+                            <p class="font-black">Campus:</p>
+                            <a href="{{ $alumno->campus5 }}">{{ $alumno->campus5 }}</a></p>
+                        @endif
+                        @if ($alumno->campus6)
+                            <p class="font-black">Campus:</p>
+                            <a href="{{ $alumno->campus6 }}">{{ $alumno->campus6 }}</a></p>
+                        @endif
                     @endforeach
                 @else
                 <p>No encontrado</p>
