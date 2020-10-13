@@ -18,6 +18,9 @@
             <th>campus1</th>
             <th>campus2</th>
             <th>campus3</th>
+            <th>campus4</th>
+            <th>campus5</th>
+            <th>campus6</th>
         </tr>
         </thead>
         <tbody>
@@ -36,6 +39,9 @@
                 <td>{{ $pago->campus1 }}</td>
                 <td>{{ $pago->campus2 }}</td>
                 <td>{{ $pago->campus3 }}</td>
+                <td>{{ $pago->campus4 }}</td>
+                <td>{{ $pago->campus5 }}</td>
+                <td>{{ $pago->campus6 }}</td>
             </tr>
         @endforeach
         </tbody>

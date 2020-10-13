@@ -22,6 +22,9 @@ class CreateAlumnosTable extends Migration
             $table->text('campus1');
             $table->text('campus2')->nullable();
             $table->text('campus3')->nullable();
+            $table->text('campus4')->nullable();
+            $table->text('campus5')->nullable();
+            $table->text('campus6')->nullable();
             $table->timestamps();
         });
     }

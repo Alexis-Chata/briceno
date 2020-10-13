@@ -29,17 +29,35 @@
             <input type="email" name="email" class="form-control" placeholder="correo" value="{{ $alumno->email }}">
         </div>
     </div>
-    <div class="form-group col-md-10 p-0">
-        <label for="inputCity">Url campus</label>
-        <input type="text" name="campus1" class="form-control" value="{{ $alumno->campus1 }}">
+    <div class="form-row">
+        <div class="form-group col-md-5">
+            <label for="inputCity">Url campus</label>
+            <input type="text" name="campus1" class="form-control" value="{{ $alumno->campus1 }}">
+        </div>
+        <div class="form-group col-md-5">
+            <label for="inputCity">Url campus</label>
+            <input type="text" name="campus4" class="form-control" value="{{ $alumno->campus2 }}">
+        </div>
     </div>
-    <div class="form-group col-md-10 p-0">
-        <label for="inputCity">Url campus</label>
-        <input type="text" name="campus2" class="form-control" value="{{ $alumno->campus2 }}">
+    <div class="form-row">
+        <div class="form-group col-md-5">
+            <label for="inputCity">Url campus</label>
+            <input type="text" name="campus2" class="form-control" value="{{ $alumno->campus3 }}">
+        </div>
+        <div class="form-group col-md-5">
+            <label for="inputCity">Url campus</label>
+            <input type="text" name="campus5" class="form-control" value="{{ $alumno->campus1 }}">
+        </div>
     </div>
-    <div class="form-group col-md-10 p-0">
-        <label for="inputCity">Url campus</label>
-        <input type="text" name="campus3" class="form-control" value="{{ $alumno->campus3 }}">
+    <div class="form-row">
+        <div class="form-group col-md-5">
+            <label for="inputCity">Url campus</label>
+            <input type="text" name="campus3" class="form-control" value="{{ $alumno->campus2 }}">
+        </div>
+        <div class="form-group col-md-5">
+            <label for="inputCity">Url campus</label>
+            <input type="text" name="campus6" class="form-control" value="{{ $alumno->campus3 }}">
+        </div>
     </div>
     @if (!empty($put))
         <input type="hidden" name="_method" value="PUT">

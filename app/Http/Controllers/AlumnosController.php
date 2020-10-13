@@ -134,6 +134,14 @@ class AlumnosController extends Controller
         //
     }
 
+    public function truncate()
+    {
+        $alumno = Alumno::truncate();
+        $msj = "Se eliminaron a todos los estudiantes";
+
+        return view('alumnos.eliminar')->with(compact('alumno', 'msj'));
+    }
+
     public function importExcel(Request $request){
         $horror=$message="";
         $file = $request->file('file');
@@ -154,6 +162,6 @@ class AlumnosController extends Controller
     }
 
     public function exportExcel(){
-        return Excel::download(new AlumnosExport, 'Alumnos.xlsx');
+        return Excel::download(new AlumnosExport, 'Alumnos.csv', \Maatwebsite\Excel\Excel::CSV);
     }
 }

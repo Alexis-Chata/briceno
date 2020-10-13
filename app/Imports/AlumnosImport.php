@@ -28,6 +28,9 @@ class AlumnosImport implements ToModel, WithHeadingRow
                 'campus1' => ($row['campus1']),
                 'campus2' => ($row['campus2']),
                 'campus3' => ($row['campus3']),
+                'campus4' => ($row['campus4']),
+                'campus5' => ($row['campus5']),
+                'campus6' => ($row['campus6']),
             ]);
         // }else{
         //     return null;

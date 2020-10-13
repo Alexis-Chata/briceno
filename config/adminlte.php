@@ -255,6 +255,10 @@ return [
                     'text' => 'Importar',
                     'url'  => 'import_alumnos',
                 ],
+                [
+                    'text' => 'Eliminar',
+                    'url'  => 'alumnos/eliminar',
+                ],
 
             ],
 
