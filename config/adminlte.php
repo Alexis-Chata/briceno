@@ -235,33 +235,39 @@ return [
         [
             'text' => 'Dashboard',
             'url'  => 'dashboard',
+            'icon'        => 'fa-fw fas fa-home',
             'can'  => 'manage-blog',
         ],
         [
             'text'        => 'Alumnos',
             'url'         => 'alumnos',
-            'icon'        => 'far fa-fw fa-file',
+            'icon'        => 'fa-fw fas fa-user-graduate',
             'label_color' => 'success',
             'submenu' => [
                 [
                     'text' => 'Buscar',
                     'url'  => 'alumnos',
+                    'icon' => 'fa-fw fas fa-search',
                 ],
                 [
                     'text' => 'Crear',
                     'url'  => 'alumnos/crear',
+                    'icon' => 'fa-fw fas fa-save',
                 ],
                 [
                     'text' => 'Lista',
                     'url'  => 'alumnos/lista',
+                    'icon' => 'fa-fw far fa-file',
                 ],
                 [
                     'text' => 'Importar',
                     'url'  => 'import_alumnos',
+                    'icon' => 'fa-fw fas fa-upload',
                 ],
                 [
                     'text' => 'Eliminar',
                     'url'  => 'alumnos/eliminar',
+                    'icon' => 'fa-fw fas fa-trash-alt',
                 ],
 
             ],
@@ -271,7 +277,7 @@ return [
         [
             'text' => 'profile',
             'url'  => 'user/profile',
-            'icon' => 'fas fa-fw fa-user',
+            'icon' => 'fa-fw fas fa-user-alt',
         ],
 
 
