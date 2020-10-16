@@ -18,13 +18,13 @@ class AlumnosExport implements FromView, WithMapping, ShouldAutoSize
     public function view(): View
     {
         return view('export', [
-            'pagos' => Alumno::all()
+            'alumnos' => Alumno::all()
         ]);
     }
-    public function map($pago): array
+    public function map($alumno): array
     {
         return [
-            Date::dateTimeToExcel($pago->fecha),
+            Date::dateTimeToExcel($alumno->fecha),
         ];
     }
 }

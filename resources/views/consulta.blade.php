@@ -38,30 +38,28 @@
                     @foreach ($alumnos as $alumno)
                         <p class="font-black">Nombre:</p>
                         <p>{{ $alumno->nombres . ' ' . $alumno->apellidos }}</p>
-                        <p class="font-black">Correo:</p>
-                        <p>{{ $alumno->email }}</p>
                         <p class="font-black">Link para la clase en vivo:</p>
-                        <a href="{{ $alumno->campus1 }}">{{ $alumno->campus1 }}</a></p>
-                        @if ($alumno->campus2)
+                        <a href="{{ $alumno->link }}">{{ $alumno->link }}</a></p>
+                        @if ($alumno->codigo)
                             <p class="font-black">Código:</p>
-                            <a href="{{ $alumno->campus2 }}">{{ $alumno->campus2 }}</a></p>
+                            <p>{{ $alumno->codigo }}</p></p>
                         @endif
 
-                        @if ($alumno->campus3)
+                        @if ($alumno->contrasena)
                             <p class="font-black">Contraseña:</p>
-                            <a href="{{ $alumno->campus3 }}">{{ $alumno->campus3 }}</a></p>
+                            <p>{{ $alumno->contrasena }}</p></p>
                         @endif
-                        @if ($alumno->campus4)
+                        @if ($alumno->puntaje)
                             <p class="font-black">Puntaje en el examen:</p>
-                            <a href="{{ $alumno->campus4 }}">{{ $alumno->campus4 }}</a></p>
+                            <p>{{ $alumno->puntaje }}</p></p>
                         @endif
-                        @if ($alumno->campus5)
+                        @if ($alumno->puesto)
                             <p class="font-black">Puesto en el ranking:</p>
-                            <a href="{{ $alumno->campus5 }}">{{ $alumno->campus5 }}</a></p>
+                            <p>{{ $alumno->puesto }}</p></p>
                         @endif
-                        @if ($alumno->campus6)
+                        @if ($alumno->grupo)
                             <p class="font-black">Grupo que le corresponde:</p>
-                            <a href="{{ $alumno->campus6 }}">{{ $alumno->campus6 }}</a></p>
+                            <p>{{ $alumno->grupo }}</p></p>
                         @endif
                     @endforeach
                 @else

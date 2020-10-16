@@ -252,6 +252,10 @@ return [
                     'url'  => 'alumnos/crear',
                 ],
                 [
+                    'text' => 'Lista',
+                    'url'  => 'alumnos/lista',
+                ],
+                [
                     'text' => 'Importar',
                     'url'  => 'import_alumnos',
                 ],

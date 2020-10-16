@@ -18,12 +18,12 @@ class CreateAlumnosTable extends Migration
             $table->string('dni')->unique();
             $table->string('nombres');
             $table->string('apellidos');
-            $table->text('campus1');
-            $table->text('campus2')->nullable();
-            $table->text('campus3')->nullable();
-            $table->text('campus4')->nullable();
-            $table->text('campus5')->nullable();
-            $table->text('campus6')->nullable();
+            $table->text('link');
+            $table->text('codigo')->nullable();
+            $table->text('contrasena')->nullable();
+            $table->text('puntaje')->nullable();
+            $table->text('puesto')->nullable();
+            $table->text('grupo')->nullable();
             $table->timestamps();
         });
     }

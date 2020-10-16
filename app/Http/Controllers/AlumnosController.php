@@ -61,6 +61,12 @@ class AlumnosController extends Controller
         //
     }
 
+    public function lista()
+    {
+            $alumnos = Alumno::all();
+        return view('alumnos.listado')->with(compact('alumnos'));
+    }
+
     public function buscar(Request $request)
     {
         list($rules, $messages) = $this->_rules();
@@ -118,10 +124,12 @@ class AlumnosController extends Controller
         $alumno->nombres = strtoupper($request->input('nombres'));
         $alumno->apellidos = strtoupper($request->input('apellidos'));
         $alumno->dni = $request->input('dni');
-        $alumno->email = $request->input('email');
-        $alumno->campus1 = $request->input('campus1');
-        $alumno->campus2 = $request->input('campus2');
-        $alumno->campus3 = $request->input('campus3');
+        $alumno->link = $request->input('link');
+        $alumno->codigo = $request->input('codigo');
+        $alumno->contrasena = $request->input('contrasena');
+        $alumno->puntaje = $request->input('puntaje');
+        $alumno->puesto = $request->input('puesto');
+        $alumno->grupo = $request->input('grupo');
         $alumno->save();
 
         return redirect()->route('alumnos.index');

@@ -26,20 +26,20 @@
             @php
                 $i=1;
             @endphp
-        @foreach($pagos as $pago)
+        @foreach($alumnos as $alumno)
             <tr>
                 @if ($i)
                 <td>{{ $i++ }}</td>
                 @endif
-                <td>{{ $pago->dni }}</td>
-                <td>{{ $pago->nombres }}</td>
-                <td>{{ $pago->apellidos }}</td>
-                <td>{{ $pago->campus1 }}</td>
-                <td>{{ $pago->campus2 }}</td>
-                <td>{{ $pago->campus3 }}</td>
-                <td>{{ $pago->campus4 }}</td>
-                <td>{{ $pago->campus5 }}</td>
-                <td>{{ $pago->campus6 }}</td>
+                <td>{{ $alumno->dni }}</td>
+                <td>{{ $alumno->nombres }}</td>
+                <td>{{ $alumno->apellidos }}</td>
+                <td>{{ $alumno->link }}</td>
+                <td>{{ $alumno->codigo }}</td>
+                <td>{{ $alumno->contrasena }}</td>
+                <td>{{ $alumno->puntaje }}</td>
+                <td>{{ $alumno->puesto }}</td>
+                <td>{{ $alumno->grupo }}</td>
             </tr>
         @endforeach
         </tbody>

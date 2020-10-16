@@ -12,7 +12,8 @@
 
     <main role="main" class="flex-shrink-0">
         <div class="container">
-            <p><a href="{{ route('alumnos.create') }}">Nuevo Alumno</a></p>
+            <p><a href="{{ route('alumnos.create') }}">Nuevo Alumno</a>
+            </p>
 
             @if ($errors->any())
 
@@ -29,7 +30,7 @@
                 </div>
                 <div class="form-group mx-sm-3 mb-2">
                     <label for="inputPassword2" class="sr-only">Dni</label>
-                    <input type="text" class="form-control" name="dni" placeholder="Ingrese el Dni" required>
+                    <input type="text" class="form-control" name="dni" placeholder="Ingrese el Dni" required/>
                 </div>
                 <button type="submit" class="btn btn-primary mb-2">Buscar</button>
             </form>
@@ -41,39 +42,46 @@
                         @if (isset($alumnos[0]->nombres))
                             @foreach ($alumnos as $alumno)
                                 <p><b>Nombre: </b>{{ $alumno->nombres . ' ' . $alumno->apellidos }}</p>
-                                <p><b>Link para la clase en vivo: </b><a
-                                        href="{{ $alumno->campus1 }}">{{ $alumno->campus1 }}</a></p>
-                                @if ($alumno->campus2)
-                                    <p><b>Código: </b><a href="{{ $alumno->campus2 }}">{{ $alumno->campus2 }}</a></p>
+                                <p><b>Link para la clase en vivo: </b>
+                                    <a href="{{ $alumno->link }}">{{ $alumno->link }}</a></p>
+                                @if ($alumno->codigo)
+                                    <p><b>Código: </b>
+                                    <p>{{ $alumno->codigo }}</p>
+                                    </p>
                                 @endif
 
-                                @if ($alumno->campus3)
-                                    <p><b>Contraseña: </b><a href="{{ $alumno->campus3 }}">{{ $alumno->campus3 }}</a></p>
+                                @if ($alumno->contrasena)
+                                    <p><b>Contraseña: </b>
+                                    <p>{{ $alumno->contrasena }}</p>
+                                    </p>
                                 @endif
-                                @if ($alumno->campus4)
-                                    <p><b>Puntaje en el examen: </b><a
-                                            href="{{ $alumno->campus4 }}">{{ $alumno->campus4 }}</a></p>
+                                @if ($alumno->puntaje)
+                                    <p><b>Puntaje en el examen: </b>
+                                    <p>{{ $alumno->puntaje }}</p>
+                                    </p>
                                 @endif
 
-                                @if ($alumno->campus5)
-                                    <p><b>Puesto en el ranking: </b><a
-                                            href="{{ $alumno->campus5 }}">{{ $alumno->campus5 }}</a></p>
+                                @if ($alumno->puesto)
+                                    <p><b>Puesto en el ranking: </b>
+                                    <p>{{ $alumno->puesto }}</p>
+                                    </p>
                                 @endif
-                                @if ($alumno->campus6)
-                                    <p><b>Grupo que le corresponde: </b><a
-                                            href="{{ $alumno->campus6 }}">{{ $alumno->campus6 }}</a></p>
+                                @if ($alumno->grupo)
+                                    <p><b>Grupo que le corresponde: </b>
+                                    <p>{{ $alumno->grupo }}</p>
+                                    </p>
                                 @endif
 
                                 <div class="col-7 row d-block">
-                                <a class="btn btn-primary" href="{{ route('alumnos.edit', $alumno->id) }}">Editar</a>
-                                @if ($eliminar)
-                                    <form class="float-right" method="post"
-                                        action="{{ route('alumnos.destroy', $alumno->id) }}">
-                                        @csrf
-                                        <button type="submit" class="btn btn-danger">eliminar</button>
-                                        <input type="hidden" name="_method" value="DELETE">
-                                    </form>
-                                @endif
+                                    <a class="btn btn-primary" href="{{ route('alumnos.edit', $alumno->id) }}">Editar</a>
+                                        @if ($eliminar)
+                                            <form class="float-right" method="post"
+                                                action="{{ route('alumnos.destroy', $alumno->id) }}">
+                                                @csrf
+                                                <button type="submit" class="btn btn-danger">eliminar</button>
+                                                <input type="hidden" name="_method" value="DELETE">
+                                            </form>
+                                        @endif
                                 </div>
                             @endforeach
                         @else
