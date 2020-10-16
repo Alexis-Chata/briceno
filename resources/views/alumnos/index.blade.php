@@ -46,29 +46,29 @@
                                     <a href="{{ $alumno->link }}">{{ $alumno->link }}</a></p>
                                 @if ($alumno->codigo)
                                     <p><b>Código: </b>
-                                    <p>{{ $alumno->codigo }}</p>
+                                    {{ $alumno->codigo }}
                                     </p>
                                 @endif
 
                                 @if ($alumno->contrasena)
                                     <p><b>Contraseña: </b>
-                                    <p>{{ $alumno->contrasena }}</p>
+                                    {{ $alumno->contrasena }}
                                     </p>
                                 @endif
                                 @if ($alumno->puntaje)
                                     <p><b>Puntaje en el examen: </b>
-                                    <p>{{ $alumno->puntaje }}</p>
+                                    {{ $alumno->puntaje }}
                                     </p>
                                 @endif
 
                                 @if ($alumno->puesto)
                                     <p><b>Puesto en el ranking: </b>
-                                    <p>{{ $alumno->puesto }}</p>
+                                    {{ $alumno->puesto }}
                                     </p>
                                 @endif
                                 @if ($alumno->grupo)
                                     <p><b>Grupo que le corresponde: </b>
-                                    <p>{{ $alumno->grupo }}</p>
+                                    {{ $alumno->grupo }}
                                     </p>
                                 @endif
 
