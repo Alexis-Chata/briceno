@@ -18,7 +18,6 @@ class CreateAlumnosTable extends Migration
             $table->string('dni')->unique();
             $table->string('nombres');
             $table->string('apellidos');
-            $table->string('email')->unique();
             $table->text('campus1');
             $table->text('campus2')->nullable();
             $table->text('campus3')->nullable();

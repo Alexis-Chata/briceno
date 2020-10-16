@@ -13,19 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('consulta');
-});
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {return view('admin.dashboard');})->name('dashboard');
-
-Route::middleware(['auth:sanctum', 'verified'])->post('alumnos', [App\Http\Controllers\AlumnosController::class, 'buscar']);
-Route::middleware(['auth:sanctum', 'verified'])->post('alumnos/guardar', [App\Http\Controllers\AlumnosController::class, 'guardar'])->name('alumnos.guardar');
-Route::middleware(['auth:sanctum', 'verified'])->resource('alumnos', App\Http\Controllers\AlumnosController::class)->only(['index', 'create', 'edit', 'update']);
+Route::view('/', 'consulta');
 Route::post('/', [App\Http\Controllers\ConsultasController::class, 'index']);
-Route::middleware(['auth:sanctum', 'verified'])->get('alumnos/eliminar', function ($msj="") {return view('alumnos.eliminar')->with(compact( 'msj'));});
-Route::middleware(['auth:sanctum', 'verified'])->post('alumnos/eliminar', [App\Http\Controllers\AlumnosController::class, 'truncate'])->name('alumnos.truncate');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('import_alumnos', function (){return  view('import');});
-Route::middleware(['auth:sanctum', 'verified'])->post('import_alumnos', [App\Http\Controllers\AlumnosController::class, 'importExcel'])->name('alumnos.import.excel');
-Route::middleware(['auth:sanctum', 'verified'])->get('export_alumnos', [App\Http\Controllers\AlumnosController::class, 'exportExcel'])->name('alumnos.export.excel');
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::view('/dashboard', 'admin.dashboard')->name('dashboard');
+    Route::view('import_alumnos', 'import', ['success' =>"", 'message']);
+    Route::view('alumnos/eliminar', 'alumnos.eliminar', [ 'msj' =>""]);
+
+    Route::resource('alumnos', App\Http\Controllers\AlumnosController::class)->only(['index', 'create', 'edit', 'update', 'destroy']);
+    Route::post('alumnos', [App\Http\Controllers\AlumnosController::class, 'buscar']);
+    Route::post('alumnos/guardar', [App\Http\Controllers\AlumnosController::class, 'guardar'])->name('alumnos.guardar');
+    Route::post('alumnos/eliminar', [App\Http\Controllers\AlumnosController::class, 'truncate'])->name('alumnos.truncate');
+    Route::post('import_alumnos', [App\Http\Controllers\AlumnosController::class, 'importExcel'])->name('alumnos.import.excel');
+    Route::get('export_alumnos_excel', [App\Http\Controllers\AlumnosController::class, 'exportExcel'])->name('alumnos.export.excel');
+    Route::get('export_alumnos', [App\Http\Controllers\AlumnosController::class, 'exportCsv'])->name('alumnos.export.csv');
+});

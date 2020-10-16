@@ -1,8 +1,12 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-.medio-screen {
-    min-height: 50vh
+.min_height_22r {
+    min-height: 22rem
+}
+
+.min_height_6r {
+    min-height: 6rem
 }
 
 .fondo_briceno {

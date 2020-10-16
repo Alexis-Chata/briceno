@@ -35,33 +35,46 @@
             </form>
 
             @if (!empty($alumnos))
-                <div class="medio-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
+                <div class="min_height_22r flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
                     <div class="w-min-content px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
                         <h2 class="mx-auto">Resultado...</h2>
                         @if (isset($alumnos[0]->nombres))
                             @foreach ($alumnos as $alumno)
                                 <p><b>Nombre: </b>{{ $alumno->nombres . ' ' . $alumno->apellidos }}</p>
-                                <p><b>Correo: </b>{{ $alumno->email }}</p>
-                                <p><b>Campus: </b><a href="{{ $alumno->campus1 }}">{{ $alumno->campus1 }}</a></p>
+                                <p><b>Link para la clase en vivo: </b><a
+                                        href="{{ $alumno->campus1 }}">{{ $alumno->campus1 }}</a></p>
                                 @if ($alumno->campus2)
-                                    <p><b>Campus: </b><a href="{{ $alumno->campus2 }}">{{ $alumno->campus2 }}</a></p>
+                                    <p><b>Código: </b><a href="{{ $alumno->campus2 }}">{{ $alumno->campus2 }}</a></p>
                                 @endif
 
                                 @if ($alumno->campus3)
-                                    <p><b>Campus: </b><a href="{{ $alumno->campus3 }}">{{ $alumno->campus3 }}</a></p>
+                                    <p><b>Contraseña: </b><a href="{{ $alumno->campus3 }}">{{ $alumno->campus3 }}</a></p>
                                 @endif
                                 @if ($alumno->campus4)
-                                    <p><b>Campus: </b><a href="{{ $alumno->campus4 }}">{{ $alumno->campus4 }}</a></p>
+                                    <p><b>Puntaje en el examen: </b><a
+                                            href="{{ $alumno->campus4 }}">{{ $alumno->campus4 }}</a></p>
                                 @endif
 
                                 @if ($alumno->campus5)
-                                    <p><b>Campus: </b><a href="{{ $alumno->campus5 }}">{{ $alumno->campus5 }}</a></p>
+                                    <p><b>Puesto en el ranking: </b><a
+                                            href="{{ $alumno->campus5 }}">{{ $alumno->campus5 }}</a></p>
                                 @endif
                                 @if ($alumno->campus6)
-                                    <p><b>Campus: </b><a href="{{ $alumno->campus6 }}">{{ $alumno->campus6 }}</a></p>
+                                    <p><b>Grupo que le corresponde: </b><a
+                                            href="{{ $alumno->campus6 }}">{{ $alumno->campus6 }}</a></p>
                                 @endif
 
+                                <div class="col-7 row d-block">
                                 <a class="btn btn-primary" href="{{ route('alumnos.edit', $alumno->id) }}">Editar</a>
+                                @if ($eliminar)
+                                    <form class="float-right" method="post"
+                                        action="{{ route('alumnos.destroy', $alumno->id) }}">
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger">eliminar</button>
+                                        <input type="hidden" name="_method" value="DELETE">
+                                    </form>
+                                @endif
+                                </div>
                             @endforeach
                         @else
                             <p>No encontrado</p>

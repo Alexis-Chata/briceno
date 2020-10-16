@@ -3,38 +3,34 @@
 namespace App\Imports;
 
 use App\Models\Alumno;
+use Maatwebsite\Excel\Concerns\Importable;
+use Maatwebsite\Excel\Concerns\SkipsErrors;
+use Maatwebsite\Excel\Concerns\SkipsOnError;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
 class AlumnosImport implements ToModel, WithHeadingRow
 {
+    use Importable;
     /**
-    * @param array $row
-    *
-    * @return \Illuminate\Database\Eloquent\Model|null
-    */
+     * @param array $row
+     *
+     * @return \Illuminate\Database\Eloquent\Model|null
+     */
     public function model(array $row)
     {
-        // if (strtolower($row[1])=='fecha' || strtolower($row[9])=='importe') {
-        //     return null;
-        // }
 
-        // if (isset($row['comprobante'])){
-            return new Alumno([
-                'dni' => strtoupper($row['dni']),
-                'nombres' => strtoupper($row['nombres']),
-                'apellidos' => strtoupper($row['apellidos']),
-                'email' => strtoupper($row['email']),
-                'campus1' => ($row['campus1']),
-                'campus2' => ($row['campus2']),
-                'campus3' => ($row['campus3']),
-                'campus4' => ($row['campus4']),
-                'campus5' => ($row['campus5']),
-                'campus6' => ($row['campus6']),
-            ]);
-        // }else{
-        //     return null;
-        // }
-
+        return new Alumno([
+            'dni' => ($row['dni']),
+            'nombres' => strtoupper($row['nombres']),
+            'apellidos' => strtoupper($row['apellidos']),
+            'campus1' => ($row['link']),
+            'campus2' => ($row['codigo']),
+            'campus3' => ($row['contraseaa'] ?? $row['contrasea'] ?? $row['contrasena'] ?? $row['contraseña']),
+            'campus4' => ($row['puntaje']),
+            'campus5' => ($row['puesto']),
+            'campus6' => ($row['grupo']),
+        ]);
     }
+
 }

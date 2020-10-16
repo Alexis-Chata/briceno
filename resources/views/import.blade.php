@@ -12,13 +12,18 @@
 
     <form action="{{ route('alumnos.import.excel') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        @if (Session::has('message'))
-        <div class="form-group p-3 m-0">
-            <p>{{ Session::get('message') }}</p>
-            <p>{{ Session::get('horror') }}</p>
-        </div>
+        @if ($success == 'true')
+            <div class="form-group p-3 m-0">
+                <p class="alert alert-success col-md-7">{{ $message }}</p>
+            </div>
+        @elseif ($success=="false")
+            <div class="form-group p-3 m-0">
+                <p class="alert alert-danger col-md-7">{{ $message }}</p>
+            </div>
         @endif
-        <a class="p-3 m-0" target="_blank" href="https://docs.google.com/spreadsheets/d/1mGPNLLT2_DpFAlmJgkNzKVNQ_t3VrCKDz9EXgsDNRQ4/edit?usp=sharing">Plantilla de Importación</a>
+        <a class="p-3 m-0" target="_blank"
+            href="https://docs.google.com/spreadsheets/d/1mGPNLLT2_DpFAlmJgkNzKVNQ_t3VrCKDz9EXgsDNRQ4/edit?usp=sharing">Plantilla
+            de Importación</a>
         <div class="form-group p-3 m-0">
             <input type="file" name="file" required class="form-control-file">
         </div>

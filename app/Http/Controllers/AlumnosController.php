@@ -43,6 +43,8 @@ class AlumnosController extends Controller
     public function guardar(Request $request)
     {
         $Alumno = new Alumno($request->input());
+        $Alumno->nombres = strtoupper($request->input('nombres'));
+        $Alumno->apellidos = strtoupper($request->input('apellidos'));
         $Alumno->save();
 
         return redirect()->route('alumnos.index');
@@ -67,13 +69,15 @@ class AlumnosController extends Controller
         if ($request->input('dni')) {
             $dni = $request->input('dni');
             $alumnos = Alumno::where('dni', $dni)->get();
-            return view('alumnos.index')->with(compact('alumnos'));
+            $eliminar = false;
+            return view('alumnos.index')->with(compact('alumnos', 'eliminar'));
         }
         return redirect()->route('alumnos.index');
     }
 
     #reglas de validacion
-    private function _rules(){
+    private function _rules()
+    {
         $messages = [
             'dni.required' => 'El dni es requerido',
             'dni.min' => 'Dni minimo 8 caracteres',
@@ -111,8 +115,8 @@ class AlumnosController extends Controller
     public function update(Request $request, $id)
     {
         $alumno = Alumno::find($id);
-        $alumno->nombres = $request->input('nombres');
-        $alumno->apellidos = $request->input('apellidos');
+        $alumno->nombres = strtoupper($request->input('nombres'));
+        $alumno->apellidos = strtoupper($request->input('apellidos'));
         $alumno->dni = $request->input('dni');
         $alumno->email = $request->input('email');
         $alumno->campus1 = $request->input('campus1');
@@ -131,7 +135,9 @@ class AlumnosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tarea = Alumno::find($id);
+        $tarea->delete();
+        return back();
     }
 
     public function truncate()
@@ -142,26 +148,34 @@ class AlumnosController extends Controller
         return view('alumnos.eliminar')->with(compact('alumno', 'msj'));
     }
 
-    public function importExcel(Request $request){
-        $horror=$message="";
+    public function importExcel(Request $request)
+    {
         $file = $request->file('file');
-        if(isset($file)){
+        if (isset($file)) {
             try {
                 Excel::import(new AlumnosImport, $file);
-                $message="Importacion de Alumnos Completada";
+
+                $message = "Importacion de Alumnos Completada";
+                $success = "true";
 
             } catch (Exception $th) {
-                $message="Error en importacion";
-                //$horror = $th->getMessage();
-                $horror = str_replace("Undefined index", "Falta la columna", $th->getMessage());
+                $message = "Error en importacion \n";
+                //$message += $th->getMessage();
+                $message .= str_replace(["Undefined index", "Duplicate entry", "for key", "alumnos.alumnos_", "_unique"], ["Falta la columna", "Entrada duplicada", "para la clave", "", ""], $th->errorInfo[2]);
+                $success = "false";
             }
-        }else{
-            $message="Por favor ingrese un archivo csv, con la informacion requerida";
+        } else {
+            $message = "Por favor ingrese un archivo csv, con la informacion requerida";
         }
-        return back()->with(compact('message', 'horror'));
+        return view('import')->with(compact('message', 'success'));
     }
 
-    public function exportExcel(){
+    public function exportCsv()
+    {
         return Excel::download(new AlumnosExport, 'Alumnos.csv', \Maatwebsite\Excel\Excel::CSV);
+    }
+    public function exportExcel()
+    {
+        return Excel::download(new AlumnosExport, 'Alumnos.xlsx');
     }
 }

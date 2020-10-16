@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <div class="medio-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
+    <div class="min_height_22r flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
         <div>
             <x-jet-authentication-card-logo />
         </div>
@@ -12,7 +12,6 @@
                     {{ session('status') }}
                 </div>
             @endif
-
 
             <form method="POST">
                 @csrf
@@ -32,7 +31,7 @@
     </div>
 
     @if (!empty($alumnos))
-        <div class="medio-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
+        <div class="min_height_6r flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
             <div class="w-full sm:max-w-md px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg text-center">
                 <h2 class="mx-auto my-4"><b>Resultado...</b></h2>
                 @if (isset($alumnos[0]->nombres))
@@ -41,32 +40,32 @@
                         <p>{{ $alumno->nombres . ' ' . $alumno->apellidos }}</p>
                         <p class="font-black">Correo:</p>
                         <p>{{ $alumno->email }}</p>
-                        <p class="font-black">Campus:</p>
+                        <p class="font-black">Link para la clase en vivo:</p>
                         <a href="{{ $alumno->campus1 }}">{{ $alumno->campus1 }}</a></p>
                         @if ($alumno->campus2)
-                            <p class="font-black">Campus:</p>
+                            <p class="font-black">Código:</p>
                             <a href="{{ $alumno->campus2 }}">{{ $alumno->campus2 }}</a></p>
                         @endif
 
                         @if ($alumno->campus3)
-                            <p class="font-black">Campus:</p>
+                            <p class="font-black">Contraseña:</p>
                             <a href="{{ $alumno->campus3 }}">{{ $alumno->campus3 }}</a></p>
                         @endif
                         @if ($alumno->campus4)
-                            <p class="font-black">Campus:</p>
+                            <p class="font-black">Puntaje en el examen:</p>
                             <a href="{{ $alumno->campus4 }}">{{ $alumno->campus4 }}</a></p>
                         @endif
                         @if ($alumno->campus5)
-                            <p class="font-black">Campus:</p>
+                            <p class="font-black">Puesto en el ranking:</p>
                             <a href="{{ $alumno->campus5 }}">{{ $alumno->campus5 }}</a></p>
                         @endif
                         @if ($alumno->campus6)
-                            <p class="font-black">Campus:</p>
+                            <p class="font-black">Grupo que le corresponde:</p>
                             <a href="{{ $alumno->campus6 }}">{{ $alumno->campus6 }}</a></p>
                         @endif
                     @endforeach
                 @else
-                <p>No encontrado</p>
+                    <p>No encontrado</p>
                 @endif
 
             </div>

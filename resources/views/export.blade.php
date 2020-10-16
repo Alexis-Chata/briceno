@@ -14,13 +14,12 @@
             <th>dni</th>
             <th>nombres</th>
             <th>apellidos</th>
-            <th>email</th>
-            <th>campus1</th>
-            <th>campus2</th>
-            <th>campus3</th>
-            <th>campus4</th>
-            <th>campus5</th>
-            <th>campus6</th>
+            <th>link</th>
+            <th>Codigo</th>
+            <th>Contraseña</th>
+            <th>Puntaje</th>
+            <th>Puesto</th>
+            <th>Grupo</th>
         </tr>
         </thead>
         <tbody>
@@ -35,7 +34,6 @@
                 <td>{{ $pago->dni }}</td>
                 <td>{{ $pago->nombres }}</td>
                 <td>{{ $pago->apellidos }}</td>
-                <td>{{ $pago->email }}</td>
                 <td>{{ $pago->campus1 }}</td>
                 <td>{{ $pago->campus2 }}</td>
                 <td>{{ $pago->campus3 }}</td>
