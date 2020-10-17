@@ -169,7 +169,11 @@ class AlumnosController extends Controller
             } catch (Exception $th) {
                 $message = "Error en importacion \n";
                 //$message += $th->getMessage();
-                $message .= str_replace(["Undefined index", "Duplicate entry", "for key", "alumnos.alumnos_", "_unique"], ["Falta la columna", "Entrada duplicada", "para la clave", "", ""], $th->errorInfo[2]);
+                if(isset($th->errorInfo[2])){
+                    $message .= str_replace(["Undefined index", "Duplicate entry", "for key", "alumnos.alumnos_", "_unique"], ["Falta la columna", "Entrada duplicada", "para la clave", "", ""], $th->errorInfo[2]);
+                }else{
+                    $message .= str_replace(["Undefined index"], ["Falta la columna"], $th->getMessage());
+                }
                 $success = "false";
             }
         } else {

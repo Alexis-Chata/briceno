@@ -26,7 +26,7 @@ class AlumnosImport implements ToModel, WithHeadingRow
             'apellidos' => strtoupper($row['apellidos']),
             'link' => ($row['link']),
             'codigo' => ($row['codigo']),
-            'contrasena' => ($row['contraseaa'] ?? $row['contrasea'] ?? $row['contrasena'] ?? $row['contraseña']),
+            'contrasena' => ($row['contraseaa'] ?? $row['contrasea'] ?? $row['contrasena'] ?? $row['contraseña'] ?? null),
             'puntaje' => ($row['puntaje']),
             'puesto' => ($row['puesto']),
             'grupo' => ($row['grupo']),
