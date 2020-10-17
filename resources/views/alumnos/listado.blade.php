@@ -9,7 +9,7 @@
 @stop
 
 @section('content')
-<div class="border overflow-auto" style="height: 75vh;">
+<div class="border overflow-auto" style="height: 75vh;margin-bottom: 1.5rem;">
     <table class="table m-0 table-bordered table-hover table-head-fixed border-top-0">
         <thead>
             <tr>
