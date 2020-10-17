@@ -38,8 +38,12 @@
                     @foreach ($alumnos as $alumno)
                         <p class="font-black">Nombre:</p>
                         <p>{{ $alumno->nombres . ' ' . $alumno->apellidos }}</p>
+                        <br/>
+                        @if ($alumno->link)
                         <p class="font-black">Link para la clase en vivo:</p>
                         <a href="{{ $alumno->link }}">{{ $alumno->link }}</a></p>
+                        @endif
+
                         @if ($alumno->codigo)
                             <p class="font-black">Código:</p>
                             <p>{{ $alumno->codigo }}</p></p>

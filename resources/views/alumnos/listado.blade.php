@@ -9,19 +9,19 @@
 @stop
 
 @section('content')
-<div class="border-left border-right overflow-auto" style="height: 75vh;">
-    <table class="table m-0 table-bordered table-hover table-head-fixed">
+<div class="border overflow-auto" style="height: 75vh;">
+    <table class="table m-0 table-bordered table-hover table-head-fixed border-top-0">
         <thead>
             <tr>
-                <th class="align-middle text-center">Nro</th>
-                <th class="align-middle text-center" style="background: #fff; position: sticky; left: -1px; z-index: 11;">Dni</th>
-                <th class="align-middle text-center" style="background: #fff; position: sticky; left: 87px; z-index: 11;">Nombres y Apellidos</th>
-                <th class="align-middle text-center">Link</th>
-                <th class="align-middle text-center">Codigo</th>
-                <th class="align-middle text-center">Contraseña</th>
-                <th class="align-middle text-center">Puntaje</th>
-                <th class="align-middle text-center">Puesto</th>
-                <th class="align-middle text-center">Grupo</th>
+                <th class="border-top-0 align-middle text-center">Nro</th>
+                <th class="border-top-0 align-middle text-center" style="background: #fff; position: sticky; left: -1px; z-index: 11;">Dni</th>
+                <th class="border-top-0 align-middle text-center" style="background: #fff; position: sticky; left: 87px; z-index: 11;">Nombres y Apellidos</th>
+                <th class="border-top-0 align-middle text-center">Link</th>
+                <th class="border-top-0 align-middle text-center">Codigo</th>
+                <th class="border-top-0 align-middle text-center">Contraseña</th>
+                <th class="border-top-0 align-middle text-center">Puntaje</th>
+                <th class="border-top-0 align-middle text-center">Puesto</th>
+                <th class="border-top-0 align-middle text-center">Grupo</th>
             </tr>
         </thead>
         <tbody>

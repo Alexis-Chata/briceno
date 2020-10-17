@@ -26,31 +26,31 @@
     <div class="form-row">
         <div class="form-group col-md-5">
             <label for="inputCity">Link para la clase en vivo:</label>
-            <input type="text" name="link" class="form-control" value="{{ $alumno->link }}">
+            <input type="text" name="link" class="form-control" placeholder="Link" value="{{ $alumno->link }}">
         </div>
         <div class="form-group col-md-5">
             <label for="inputCity">Código:</label>
-            <input type="text" name="codigo" class="form-control" value="{{ $alumno->codigo }}">
+            <input type="text" name="codigo" class="form-control" placeholder="Codigo" value="{{ $alumno->codigo }}">
         </div>
     </div>
     <div class="form-row">
         <div class="form-group col-md-5">
             <label for="inputCity">Contraseña:</label>
-            <input type="text" name="contrasena" class="form-control" value="{{ $alumno->contrasena }}">
+            <input type="text" name="contrasena" class="form-control" placeholder="Contraseña" value="{{ $alumno->contrasena }}">
         </div>
         <div class="form-group col-md-5">
             <label for="inputCity">Puntaje en el examen:</label>
-            <input type="text" name="puntaje" class="form-control" value="{{ $alumno->puntaje }}">
+            <input type="text" name="puntaje" class="form-control" placeholder="Puntaje" value="{{ $alumno->puntaje }}">
         </div>
     </div>
     <div class="form-row">
         <div class="form-group col-md-5">
             <label for="inputCity">Puesto en el ranking:</label>
-            <input type="text" name="puesto" class="form-control" value="{{ $alumno->puesto }}">
+            <input type="text" name="puesto" class="form-control" placeholder="Puesto" value="{{ $alumno->puesto }}">
         </div>
         <div class="form-group col-md-5">
             <label for="inputCity">Grupo que le corresponde:</label>
-            <input type="text" name="grupo" class="form-control" value="{{ $alumno->grupo }}">
+            <input type="text" name="grupo" class="form-control" placeholder="Grupo" value="{{ $alumno->grupo }}">
         </div>
     </div>
     @if (!empty($put))

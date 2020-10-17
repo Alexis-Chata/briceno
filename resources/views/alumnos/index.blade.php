@@ -42,8 +42,12 @@
                         @if (isset($alumnos[0]->nombres))
                             @foreach ($alumnos as $alumno)
                                 <p><b>Nombre: </b>{{ $alumno->nombres . ' ' . $alumno->apellidos }}</p>
-                                <p><b>Link para la clase en vivo: </b>
+
+                                @if ($alumno->link)
+                                    <p><b>Link para la clase en vivo: </b>
                                     <a href="{{ $alumno->link }}">{{ $alumno->link }}</a></p>
+                                @endif
+
                                 @if ($alumno->codigo)
                                     <p><b>Código: </b>
                                     {{ $alumno->codigo }}
