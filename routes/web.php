@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,3 +32,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('export_alumnos_excel', [App\Http\Controllers\AlumnosController::class, 'exportExcel'])->name('alumnos.export.excel');
     Route::get('export_alumnos', [App\Http\Controllers\AlumnosController::class, 'exportCsv'])->name('alumnos.export.csv');
 });
+
+Auth::routes();
+
+Route::get('/home', function() {
+    return view('home');
+})->name('home')->middleware('auth');

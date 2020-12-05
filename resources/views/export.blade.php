@@ -10,16 +10,18 @@
     <table>
         <thead>
         <tr>
-            <th>nro</th>
-            <th>dni</th>
-            <th>nombres</th>
-            <th>apellidos</th>
+            <th>Nro</th>
+            <th>Dni</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
             <th>link</th>
             <th>Codigo</th>
             <th>Contraseña</th>
             <th>Puntaje</th>
             <th>Puesto</th>
             <th>Grupo</th>
+            <th>Fecha vencimiento de cuota</th>
+            <th>Situacion de cuota</th>
         </tr>
         </thead>
         <tbody>
@@ -40,6 +42,8 @@
                 <td>{{ $alumno->puntaje }}</td>
                 <td>{{ $alumno->puesto }}</td>
                 <td>{{ $alumno->grupo }}</td>
+                <td>{{ $alumno->fechavencimientocuota }}</td>
+                <td>{{ $alumno->situacioncuota }}</td>
             </tr>
         @endforeach
         </tbody>

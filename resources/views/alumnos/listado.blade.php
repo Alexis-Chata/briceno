@@ -25,6 +25,8 @@
                 <th class="border-top-0 align-middle text-center">Puntaje</th>
                 <th class="border-top-0 align-middle text-center">Puesto</th>
                 <th class="border-top-0 align-middle text-center">Grupo</th>
+                <th class="border-top-0 align-middle text-center">Fecha vencimiento <br>(Y-M-D)</th>
+                <th class="border-top-0 align-middle text-center">estado</th>
             </tr>
         </thead>
         <tbody>
@@ -44,6 +46,8 @@
                     <td>{{ $alumno->puntaje }}</td>
                     <td>{{ $alumno->puesto }}</td>
                     <td>{{ $alumno->grupo }}</td>
+                    <td>{{ $alumno->fechavencimientocuota }}</td>
+                    <td>{{ $alumno->situacioncuota }}</td>
                 </tr>
             @endforeach
         </tbody>

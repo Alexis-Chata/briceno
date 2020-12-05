@@ -24,6 +24,8 @@ class CreateAlumnosTable extends Migration
             $table->text('puntaje')->nullable();
             $table->text('puesto')->nullable();
             $table->text('grupo')->nullable();
+            $table->date('fechavencimientocuota')->nullable();
+            $table->text('situacioncuota')->nullable();
             $table->timestamps();
         });
     }

@@ -130,6 +130,8 @@ class AlumnosController extends Controller
         $alumno->puntaje = $request->input('puntaje');
         $alumno->puesto = $request->input('puesto');
         $alumno->grupo = $request->input('grupo');
+        $alumno->fechavencimientocuota = $request->input('fechavencimientocuota');
+        $alumno->situacioncuota = $request->input('situacioncuota');
         $alumno->save();
 
         return redirect()->route('alumnos.index');

@@ -25,11 +25,11 @@
             <form method="post" action="{{ route('alumnos.index') }}" class="form-inline">
                 @csrf
                 <div class="form-group mb-2">
-                    <label for="staticEmail2" class="sr-only">Alumno</label>
+                    <label class="sr-only">Alumno</label>
                     <input type="text" readonly class="form-control-plaintext" value="Dni del Alumno:">
                 </div>
                 <div class="form-group mx-sm-3 mb-2">
-                    <label for="inputPassword2" class="sr-only">Dni</label>
+                    <label class="sr-only">Dni</label>
                     <input type="text" class="form-control" name="dni" placeholder="Ingrese el Dni" required/>
                 </div>
                 <button type="submit" class="btn btn-primary mb-2">Buscar</button>
@@ -73,6 +73,17 @@
                                 @if ($alumno->grupo)
                                     <p><b>Grupo que le corresponde: </b>
                                     {{ $alumno->grupo }}
+                                    </p>
+                                @endif
+
+                                @if ($alumno->fechavencimientocuota)
+                                    <p><b>fecha de vencimiento de cuota: </b>
+                                    {{ $alumno->fechavencimientocuota }}
+                                    </p>
+                                @endif
+                                @if ($alumno->situacioncuota)
+                                    <p><b>estado de la cuota: </b>
+                                    {{ $alumno->situacioncuota }}
                                     </p>
                                 @endif
 
