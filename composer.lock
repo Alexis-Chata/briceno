@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7a36fdde8199afbbc5c7aaf3ed3f5cbc",
+    "content-hash": "a4204229325eaab47b93cd53d734ad3a",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -240,6 +240,50 @@
                 "map"
             ],
             "time": "2020-10-02T16:03:48+00:00"
+        },
+        {
+            "name": "dgvai/laravel-adminlte-components",
+            "version": "2.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dgvai/laravel-adminlte-components.git",
+                "reference": "d0c91d51251f25278fba95dde378bc4fa82e33e2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dgvai/laravel-adminlte-components/zipball/d0c91d51251f25278fba95dde378bc4fa82e33e2",
+                "reference": "d0c91d51251f25278fba95dde378bc4fa82e33e2",
+                "shasum": ""
+            },
+            "type": "laravel-package",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "DGvai\\BladeAdminLTE\\BladeAdminLTEServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "DGvai\\BladeAdminLTE\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jalal Uddin",
+                    "email": "dgvai@users.noreply.github.com"
+                }
+            ],
+            "description": "Laravel Blade Components For AdminLTE Bootstrap Admin Template",
+            "support": {
+                "issues": "https://github.com/dgvai/laravel-adminlte-components/issues",
+                "source": "https://github.com/dgvai/laravel-adminlte-components/tree/2.1.2"
+            },
+            "time": "2020-07-25T05:58:44+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -8473,5 +8517,5 @@
         "php": "^7.3"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }

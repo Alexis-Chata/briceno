@@ -69,36 +69,50 @@
                             <p class="font-black">fecha de vencimiento de cuota:</p>
                             <p>{{ $alumno->fechavencimientocuota }}</p></p>
                         @endif
-                        @if ($alumno->situacioncuota)
-                            <p class="font-black">estado de la cuota:</p>
-                            <p>{{ $alumno->situacioncuota }}</p></p>
-                        @endif
-                    @endforeach
-                    <div class="modal fade" id="modal-default">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h4 class="modal-title">Default Modal</h4>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                              </button>
+
+                        <div class="modal fade show block" id="modal_default" style="z-index: 1050;">
+                            <div class="modal-dialog modal-dialog-centered">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h4 class="modal-title">Pendiente</h4>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                    @if ($alumno->fechavencimientocuota)
+                                        <p class="font-black">Estimado alumno(a) se hace de su conocimiento que esta pendiente el pago de su cuota con fecha de vencimiento<br> {{ $alumno->fechavencimientocuota }}</p></p>
+                                    @endif
+                                    {{-- @if ($alumno->situacioncuota)
+                                        <p class="font-black">estado de la cuota:</p>
+                                        <p>{{ $alumno->situacioncuota }}</p></p>
+                                    @endif --}}
+                                </div>
+                                <div class="modal-footer justify-content-between">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                </div>
+                              </div>
+                              <!-- /.modal-content -->
                             </div>
-                            <div class="modal-body">
-                              <p>One fine body…</p>
-                            </div>
-                            <div class="modal-footer justify-content-between">
-                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary">Save changes</button>
-                            </div>
-                          </div>
-                          <!-- /.modal-content -->
+                            <!-- /.modal-dialog -->
                         </div>
-                        <!-- /.modal-dialog -->
-                      </div>
+                        <div id="fondo_modal" class="modal-backdrop fade show"></div>
+                        <script>
+                            array1=document.querySelectorAll('[data-dismiss]');
+                            array1.forEach(function(element){
+                                element.addEventListener("click", function(){
+                                document.getElementById("modal_default").classList.remove('show');
+                                document.getElementById("modal_default").classList.remove('block');
+                                document.getElementById("fondo_modal").classList.remove('modal-backdrop');
+                                document.getElementById("fondo_modal").classList.remove('fade');
+                                document.getElementById("fondo_modal").classList.remove('show');
+                                });
+                            });
+                        </script>
+                    @endforeach
                 @else
                     <p>No encontrado</p>
                 @endif
-
             </div>
         </div>
     @endif
