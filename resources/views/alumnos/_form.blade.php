@@ -59,8 +59,9 @@
             <input type="date" name="fechavencimientocuota" class="form-control" placeholder="fecha vencimiento de la cuota" value="{{ $alumno->fechavencimientocuota }}">
         </div>
         <div class="form-group col-md-5">
-            <label>situacion de cuota:</label>
-            <input type="text" name="situacioncuota" class="form-control" placeholder="situacion de cuota" value="{{ $alumno->situacioncuota }}">
+            <label>situacion de cuota:</label><br>
+            <label for="id_cancelado" class="font-weight-normal">Cancelado</label> <input type="radio" name="situacioncuota" id="id_cancelado" value="cancelado" {{ $alumno->situacioncuota=='cancelado'?'checked':'' }}>
+            <label for="id_pendiente" class="font-weight-normal">&nbsp;&nbsp;&nbsp;&nbsp; Pendiente</label> <input type="radio" name="situacioncuota" id="id_pendiente" value="pendiente" {{ $alumno->situacioncuota=='pendiente'?'checked':'' }}>
         </div>
     </div>
     @if (!empty($put))
