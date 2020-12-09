@@ -75,7 +75,7 @@ class AlumnosController extends Controller
         if ($request->input('dni')) {
             $dni = $request->input('dni');
             $alumnos = Alumno::where('dni', $dni)->get();
-            $eliminar = false;
+            $eliminar = true;
             return view('alumnos.index')->with(compact('alumnos', 'eliminar'));
         }
         return redirect()->route('alumnos.index');
