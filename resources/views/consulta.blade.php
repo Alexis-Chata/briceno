@@ -70,7 +70,7 @@
                             <p>{{ $alumno->fechavencimientocuota }}</p></p>
                         @endif
 
-                        @if (Str::upper($alumno->situacioncuota)!=Str::upper('cancelado'))
+                        @if (!empty($alumno->fechavencimientocuota) &&  Str::upper($alumno->situacioncuota)!=Str::upper('cancelado'))
                             <div class="modal fade show block" id="modal_default" style="z-index: 1050;">
                                 <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
