@@ -82,8 +82,7 @@
                                     </div>
                                     <div class="modal-body">
                                         @if ($alumno->fechavencimientocuota)
-                                            <p class="font-black">Estimado(a) Alumno(a), se le recuerda que su pensión venció o vencerá el día @php $date = new DateTime($alumno->fechavencimientocuota);
-                                                setlocale(LC_ALL, "es_ES");echo strftime("%d de %b del %Y",$date->getTimestamp());@endphp</p></p>
+                                            <p class="font-black">Estimado(a) Alumno(a), se le recuerda que su pensión venció o vencerá el día {{ $alumno->fechavencimientocuota }}</p></p>
                                         @endif
                                         {{-- @if ($alumno->situacioncuota)
                                             <p class="font-black">estado de la cuota:</p>

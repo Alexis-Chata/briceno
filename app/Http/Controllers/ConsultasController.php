@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Alumno;
+use DateTime;
 
 class ConsultasController extends Controller
 {
@@ -20,6 +21,12 @@ class ConsultasController extends Controller
         if ($request) {
             $dni = $request->input('dni');
             $alumnos = Alumno::where('dni', $dni)->get();
+            foreach ($alumnos as $alumno) {
+                $date = new DateTime($alumno->fechavencimientocuota);
+                $diassemana = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
+                $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+                $alumno->fechavencimientocuota = date('d',$date->getTimestamp())." de ".$meses[date('n',$date->getTimestamp())-1]. " del ".date('Y',$date->getTimestamp()) ;
+            }
         }
         return view('consulta')->with(compact('alumnos'));
     }
