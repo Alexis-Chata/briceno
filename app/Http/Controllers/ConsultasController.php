@@ -21,6 +21,14 @@ class ConsultasController extends Controller
         if ($request) {
             $dni = $request->input('dni');
             $alumnos = Alumno::where('dni', $dni)->get();
+            if(isset($alumnos[0]['fechavencimientocuota'])){
+                $datetime1 = date_create();
+                $datetime2 = date_create($alumnos[0]['fechavencimientocuota']);
+                $interval = date_diff($datetime2, $datetime1);
+                if($interval->format('%a')<=3){
+                    $alumnos[0]['modal']=true;
+                }
+            }
             foreach ($alumnos as $alumno) {
                 if($alumno->fechavencimientocuota){
                     $date = new DateTime($alumno->fechavencimientocuota);

@@ -1,10 +1,11 @@
 <x-guest-layout>
     <div class="min_height_22r flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
-        <div>
+        <div class="flex flex-col items-center">
             <x-jet-authentication-card-logo />
+            <p class="py-2 text-white" style="font-size: x-large;">Sistema de Gestion de Busqueda</p>
         </div>
 
-        <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+        <div class="w-full sm:max-w-md mt-1 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
             <x-jet-validation-errors class="mb-4" />
 
             @if (session('status'))
@@ -33,7 +34,7 @@
     @if (!empty($alumnos))
         <div class="min_height_6r flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
             <div class="w-full sm:max-w-md px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg text-center">
-                <h2 class="mx-auto my-4"><b>Resultado...</b></h2>
+                <h2 class="mx-auto my-3"><b>Resultado...</b></h2>
                 @if (isset($alumnos[0]->nombres))
                     @foreach ($alumnos as $alumno)
                         <p class="font-black">Nombre:</p>
@@ -46,31 +47,32 @@
 
                         @if ($alumno->codigo)
                             <p class="font-black">Código:</p>
-                            <p>{{ $alumno->codigo }}</p></p>
+                            <p>{{ $alumno->codigo }}</p>
                         @endif
 
                         @if ($alumno->contrasena)
                             <p class="font-black">Contraseña:</p>
-                            <p>{{ $alumno->contrasena }}</p></p>
+                            <p>{{ $alumno->contrasena }}</p>
                         @endif
                         @if ($alumno->puntaje)
                             <p class="font-black">Puntaje en el examen:</p>
-                            <p>{{ $alumno->puntaje }}</p></p>
+                            <p>{{ $alumno->puntaje }}</p>
                         @endif
                         @if ($alumno->puesto)
                             <p class="font-black">Puesto en el ranking:</p>
-                            <p>{{ $alumno->puesto }}</p></p>
+                            <p>{{ $alumno->puesto }}</p>
                         @endif
                         @if ($alumno->grupo)
                             <p class="font-black">Grupo que le corresponde:</p>
-                            <p>{{ $alumno->grupo }}</p></p>
+                            <p>{{ $alumno->grupo }}</p>
                         @endif
                         @if ($alumno->fechavencimientocuota)
                             <p class="font-black">fecha de vencimiento de cuota:</p>
-                            <p>{{ $alumno->fechavencimientocuota }}</p></p>
+                            <p>{{ $alumno->fechavencimientocuota }}</p>
+                            <p>{{ $alumno->resta }}</p>
                         @endif
 
-                        @if (!empty($alumno->fechavencimientocuota) &&  Str::upper($alumno->situacioncuota)!=Str::upper('cancelado'))
+                        @if (isset($alumno->modal) &&  Str::upper($alumno->situacioncuota)!=Str::upper('cancelado'))
                             <div class="modal fade show block" id="modal_default" style="z-index: 1050;">
                                 <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
@@ -86,7 +88,7 @@
                                         @endif
                                         {{-- @if ($alumno->situacioncuota)
                                             <p class="font-black">estado de la cuota:</p>
-                                            <p>{{ $alumno->situacioncuota }}</p></p>
+                                            <p>{{ $alumno->situacioncuota }}</p>
                                         @endif --}}
                                     </div>
                                     <div class="modal-footer justify-content-between">
