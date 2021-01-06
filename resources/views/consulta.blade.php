@@ -73,7 +73,7 @@
                         @endif
                         @if ($alumno->url)
                             <p class="font-black">Link:</p>
-                            <p>{{ $alumno->url }}</p>
+                            <a href="{{ $alumno->url }}">{{ $alumno->url }}</a></p>
                         @endif
 
                         @if (isset($alumno->modal) &&  Str::upper($alumno->situacioncuota)!=Str::upper('cancelado'))
