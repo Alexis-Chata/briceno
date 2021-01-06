@@ -20,6 +20,7 @@
             <th>Puntaje</th>
             <th>Puesto</th>
             <th>Grupo</th>
+            <th>Url</th>
             <th>Fecha vencimiento de cuota</th>
             <th>Situacion de cuota</th>
         </tr>
@@ -42,6 +43,7 @@
                 <td>{{ $alumno->puntaje }}</td>
                 <td>{{ $alumno->puesto }}</td>
                 <td>{{ $alumno->grupo }}</td>
+                <td>{{ $alumno->url }}</td>
                 <td>{{ $alumno->fechavencimientocuota }}</td>
                 <td>{{ $alumno->situacioncuota }}</td>
             </tr>

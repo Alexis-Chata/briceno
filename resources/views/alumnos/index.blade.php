@@ -75,6 +75,11 @@
                                     {{ $alumno->grupo }}
                                     </p>
                                 @endif
+                                @if ($alumno->url)
+                                    <p><b>url: </b>
+                                    <a href="{{ $alumno->url }}">{{ $alumno->url }}</a></p>
+                                    </p>
+                                @endif
 
                                 @if ($alumno->fechavencimientocuota)
                                     <p><b>fecha de vencimiento de cuota: </b>

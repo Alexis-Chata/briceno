@@ -55,6 +55,12 @@
     </div>
     <div class="form-row">
         <div class="form-group col-md-5">
+            <label>Url:</label>
+            <input type="text" name="url" class="form-control" placeholder="Url" value="{{ $alumno->url }}">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-5">
             <label>fecha vencimiento de la cuota:</label>
             <input type="date" name="fechavencimientocuota" class="form-control" placeholder="fecha vencimiento de la cuota" value="{{ $alumno->fechavencimientocuota }}">
         </div>

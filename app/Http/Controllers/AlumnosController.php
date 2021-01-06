@@ -130,6 +130,7 @@ class AlumnosController extends Controller
         $alumno->puntaje = $request->input('puntaje');
         $alumno->puesto = $request->input('puesto');
         $alumno->grupo = $request->input('grupo');
+        $alumno->url = $request->input('url');
         $alumno->fechavencimientocuota = $request->input('fechavencimientocuota');
         $alumno->situacioncuota = $request->input('situacioncuota');
         $alumno->save();

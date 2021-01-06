@@ -30,6 +30,7 @@ class AlumnosImport implements ToModel, WithHeadingRow
             'puntaje' => ($row['puntaje']),
             'puesto' => ($row['puesto']),
             'grupo' => ($row['grupo']),
+            'url' => ($row['url']),
             'fechavencimientocuota' => ($row['fechavencimientocuota']),
             'situacioncuota' => ($row['situacioncuota']),
         ]);

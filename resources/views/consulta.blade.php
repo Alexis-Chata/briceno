@@ -71,6 +71,10 @@
                             <p>{{ $alumno->fechavencimientocuota }}</p>
                             <p>{{ $alumno->resta }}</p>
                         @endif
+                        @if ($alumno->url)
+                            <p class="font-black">Link:</p>
+                            <p>{{ $alumno->url }}</p>
+                        @endif
 
                         @if (isset($alumno->modal) &&  Str::upper($alumno->situacioncuota)!=Str::upper('cancelado'))
                             <div class="modal fade show block" id="modal_default" style="z-index: 1050;">
