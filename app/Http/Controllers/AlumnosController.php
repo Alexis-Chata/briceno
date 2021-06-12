@@ -63,7 +63,7 @@ class AlumnosController extends Controller
 
     public function lista()
     {
-            $alumnos = Alumno::all();
+        $alumnos = Alumno::all();
         return view('alumnos.listado')->with(compact('alumnos'));
     }
 

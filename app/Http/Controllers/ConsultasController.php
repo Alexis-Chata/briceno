@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Alumno;
+use App\Models\Asistencia;
 use DateTime;
 
 class ConsultasController extends Controller
@@ -21,6 +22,12 @@ class ConsultasController extends Controller
         if ($request) {
             $dni = $request->input('dni');
             $alumnos = Alumno::where('dni', $dni)->get();
+            $alumnos_array = $alumnos->toArray();
+            if (isset($alumnos_array[0])) {
+                $asistencia = new Asistencia($alumnos_array[0]);
+                $asistencia->save();
+            }
+
             if(isset($alumnos[0]['fechavencimientocuota'])){
                 $datetime1 = date_create();
                 $datetime2 = date_create($alumnos[0]['fechavencimientocuota']);

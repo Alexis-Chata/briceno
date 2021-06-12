@@ -81,14 +81,14 @@
                                 <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                    <h4 class="modal-title">Comunicado</h4>
+                                    <h4 class="modal-title text-red"><b>📣 IMPORTANTE</b></h4>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">×</span>
                                     </button>
                                     </div>
                                     <div class="modal-body">
                                         @if ($alumno->fechavencimientocuota)
-                                            <p class="font-black">Estimado(a) Alumno(a), se le recuerda que su cuota venció o vencerá el día {{ $alumno->fechavencimientocuota }}</p><br><p>Muchas gracias por tu atención.</p>
+                                            <p class="font-black">Estimado(a) Alumno(a):<br><br> Hacemos de tu conocimiento que tu pensión vencerá el día {{ $alumno->fechavencimientocuota }}.<br>Agradeceremos hacer tu pago a la brevedad por medio de los canales usados para tu matrícula.<br><br>Muchas gracias por su comprensión.</p>
                                         @endif
                                         {{-- @if ($alumno->situacioncuota)
                                             <p class="font-black">estado de la cuota:</p>

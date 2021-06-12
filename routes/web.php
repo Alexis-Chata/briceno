@@ -29,6 +29,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::post('import_alumnos', [App\Http\Controllers\AlumnosController::class, 'importExcel'])->name('alumnos.import.excel');
 
     Route::get('alumnos/lista', [App\Http\Controllers\AlumnosController::class, 'lista']);
+    Route::get('alumnos/asistencia', [App\Http\Controllers\AsistenciasController::class, 'asistencia'])->name('alumnos.asistencia');
     Route::get('export_alumnos_excel', [App\Http\Controllers\AlumnosController::class, 'exportExcel'])->name('alumnos.export.excel');
     Route::get('export_alumnos', [App\Http\Controllers\AlumnosController::class, 'exportCsv'])->name('alumnos.export.csv');
 });
