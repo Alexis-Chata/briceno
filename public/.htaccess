@@ -1,9 +1,22 @@
+RewriteEngine On
+RewriteBase /
+
+# DO NOT REMOVE THIS LINE AND THE LINES BELLOW SSL_REDIRECT:sigedu.bricenovirtual.com
+#RewriteEngine on
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} (www\.)?sigedu.bricenovirtual.com
+#RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# DO NOT REMOVE THIS LINE AND THE LINES BELLOW SSL_REDIRECT:sigedu.bricenovirtual.com
+
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+https redirect
+
+#RedirectMatch 301 ^/(.*)$ https://sigedu.bricenovirtual.com/$1
+
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes
     </IfModule>
-
-    RewriteEngine On
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
