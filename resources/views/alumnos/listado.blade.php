@@ -6,7 +6,7 @@
     <div class="container">
         <h1 class="mt-3" style="display: inline-block;">Lista de Alumno</h1>
         <div class="m-2 text-right float-right" style="display: inline-block;">
-            <a href="../export_alumnos_excel" class="btn btn-primary">Exportar</a>
+            <a href="{{ route('alumnos.export.excel') }}" class="btn btn-primary">Exportar</a>
         </div>
     </div>
 @stop

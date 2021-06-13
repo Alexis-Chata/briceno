@@ -32,4 +32,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('alumnos/asistencia', [App\Http\Controllers\AsistenciasController::class, 'asistencia'])->name('alumnos.asistencia');
     Route::get('export_alumnos_excel', [App\Http\Controllers\AlumnosController::class, 'exportExcel'])->name('alumnos.export.excel');
     Route::get('export_alumnos', [App\Http\Controllers\AlumnosController::class, 'exportCsv'])->name('alumnos.export.csv');
+    Route::get('export_asistencias_excel', [App\Http\Controllers\AsistenciasController::class, 'exportExcel'])->name('asistencias.export.excel');
+    Route::get('export_asistencias', [App\Http\Controllers\AsistenciasController::class, 'exportCsv'])->name('asistencias.export.csv');
 });

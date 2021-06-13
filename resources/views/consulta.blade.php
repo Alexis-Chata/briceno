@@ -88,7 +88,7 @@
                                     </div>
                                     <div class="modal-body">
                                         @if ($alumno->fechavencimientocuota)
-                                            <p class="font-black">Estimado(a) Alumno(a):<br><br> Hacemos de tu conocimiento que tu pensión vencerá el día {{ $alumno->fechavencimientocuota }}.<br>Agradeceremos hacer tu pago a la brevedad por medio de los canales usados para tu matrícula.<br><br>Muchas gracias por su comprensión.</p>
+                                            <p class="font-black">Estimado(a) Alumno(a):<br><br> Hacemos de tu conocimiento que tu pensión <span class="text-red-500">vencerá el día {{ $alumno->fechavencimientocuota }}.</span><br>Agradeceremos hacer tu pago a la brevedad por medio de los canales usados para tu matrícula.<br><br>¡Muchas gracias!.</p>
                                         @endif
                                         {{-- @if ($alumno->situacioncuota)
                                             <p class="font-black">estado de la cuota:</p>

@@ -5,6 +5,9 @@
 @section('content_header')
     <div class="container">
         <h1 class="mt-3" style="display: inline-block;">Lista de Consulta del Alumno</h1>
+        <div class="m-2 text-right float-right" style="display: inline-block;">
+            <a href="{{ route('asistencias.export.excel') }}" class="btn btn-primary">Exportar</a>
+        </div>
     </div>
 @stop
 

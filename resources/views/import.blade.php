@@ -34,34 +34,32 @@
         </form>
     </div>
     <div class="p-3 pt-5">
-        <img src="{{asset('/img/formato_importar.png')}}" alt="formato de importacion" class="shadow-lg w-100" data-toggle="modal"
-        data-target="#imagenModal" />
+        <img src="{{asset('/img/formato_importar.png')}}" alt="formato de importacion" class="shadow-lg w-100" data-toggle="modal" data-target="#imagenModal" />
     </div>
     <div class="modal fade"
-             id="imagenModal"
-             tabindex="-1"
-             role="dialog"
-             aria-labelledby="exampleModalLabel"
-             aria-hidden="true">
-            <div class="modal-dialog" style="max-width: 95%;"
-                 role="document">
-                <div class="modal-content">
-                        <button type="button"
-                                class="align-self-end close pr-2 pl-2 pt-1"
-                                data-dismiss="modal"
-                                aria-label="Close">
-                            <span aria-hidden="true">
-                              ×
-                          </span>
-                        </button>
+        id="imagenModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" style="max-width: 95%;" role="document">
+            <div class="modal-content">
+                    <button type="button"
+                            class="align-self-end close pr-2 pl-2 pt-1"
+                            data-dismiss="modal"
+                            aria-label="Close">
+                        <span aria-hidden="true">
+                            ×
+                        </span>
+                    </button>
 
-                    <!--Modal body with image-->
-                    <div class="modal-body p-0">
-                        <img src="{{asset('/img/formato_importar.png')}}" alt="formato de importacion" class="w-100"/>
-                    </div>
-
+                <!--Modal body with image-->
+                <div class="modal-body p-0">
+                    <img src="{{asset('/img/formato_importar.png')}}" alt="formato de importacion" class="w-100"/>
                 </div>
+
             </div>
         </div>
+    </div>
 </main>
 @endsection

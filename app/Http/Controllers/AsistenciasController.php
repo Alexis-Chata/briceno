@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\AsistenciasExport;
 use Illuminate\Http\Request;
 use App\Models\Asistencia;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AsistenciasController extends Controller
 {
@@ -11,6 +13,16 @@ class AsistenciasController extends Controller
     {
         $alumnos = Asistencia::all();
         return view('alumnos.listado_asistencia')->with(compact('alumnos'));
+    }
+
+    public function exportCsv()
+    {
+        return Excel::download(new AsistenciasExport, 'Asistencias.csv', \Maatwebsite\Excel\Excel::CSV);
+    }
+
+    public function exportExcel()
+    {
+        return Excel::download(new AsistenciasExport, 'Asistencias.xlsx');
     }
     /**
      * Display a listing of the resource.
