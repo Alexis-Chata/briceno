@@ -37,6 +37,9 @@
                     <th>Url</th>
                     <th>Fecha vencimiento <br>(Y-M-D)</th>
                     <th>estado</th>
+                    @foreach ($alumno_info_fields as $alumno_info_field)
+                        <th>{{ $alumno_info_field->name }}</th>
+                    @endforeach
                     <th>Acciónes</th>
                 </tr>
             </thead>
@@ -60,6 +63,25 @@
                         <td><a href="{{ $alumno->url }}">{{ $alumno->url }}</a></td>
                         <td>{{ $alumno->fechavencimientocuota }}</td>
                         <td>{{ $alumno->situacioncuota }}</td>
+
+                        @foreach ($alumno_info_fields as $alumno_info_field)
+                            @php
+                                $campo_existente=false;
+                            @endphp
+                            @foreach ($alumno->alumno_info_data as $alumno_info_data)
+                                @if ($alumno_info_field->id == $alumno_info_data->alumno_info_field->id)
+                                    <td>{{ $alumno_info_data->data }}</td>
+                                    @php
+                                        $campo_existente=true;
+                                        break;
+                                    @endphp
+                                @endif
+                            @endforeach
+                            @if (!$campo_existente)
+                                <td></td>
+                            @endif
+                        @endforeach
+
                         <td><form action="{{ route ('alumnos.destroy',$alumno->id)}}" method="POST">
                             <a href="{{ route('alumnos.edit', $alumno->id) }}" class="btn btn-info">Editar</a>
                             @csrf

@@ -9,4 +9,9 @@ class Alumno extends Model
 {
     use HasFactory;
     protected $fillable = ['nombres','apellidos','dni','link','codigo','contrasena','puntaje','puesto','grupo','url','fechavencimientocuota','situacioncuota'];
+
+    public function alumno_info_data()
+    {
+        return $this->hasMany(Alumno_info_data::class);
+    }
 }

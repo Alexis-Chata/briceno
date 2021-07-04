@@ -23,6 +23,9 @@
             <th>Url</th>
             <th>Fecha vencimiento de cuota</th>
             <th>Situacion de cuota</th>
+            @foreach ($alumno_info_fields as $alumno_info_field)
+                <th>{{ $alumno_info_field->name }}</th>
+            @endforeach
         </tr>
         </thead>
         <tbody>
@@ -46,6 +49,23 @@
                 <td>{{ $alumno->url }}</td>
                 <td>{{ $alumno->fechavencimientocuota }}</td>
                 <td>{{ $alumno->situacioncuota }}</td>
+                @foreach ($alumno_info_fields as $alumno_info_field)
+                    @php
+                        $campo_existente=false;
+                    @endphp
+                    @foreach ($alumno->alumno_info_data as $alumno_info_data)
+                        @if ($alumno_info_field->id == $alumno_info_data->alumno_info_field->id)
+                            <td>{{ $alumno_info_data->data }}</td>
+                            @php
+                                $campo_existente=true;
+                                break;
+                            @endphp
+                        @endif
+                    @endforeach
+                    @if (!$campo_existente)
+                        <td></td>
+                    @endif
+                @endforeach
             </tr>
         @endforeach
         </tbody>

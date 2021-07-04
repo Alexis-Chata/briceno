@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Crear Alumno')
+@section('title', 'Eliminar Alumnos')
 
 @section('content_header')
     <div class="container">

@@ -37,10 +37,11 @@
 
             @if (!empty($alumnos))
                 <div class="min_height_22r flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-                    <div class="w-min-content px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+                    <div class="w-min-content px-6 py-4 shadow-md overflow-hidden sm:rounded-lg">
                         <h2 class="mx-auto">Resultado...</h2>
                         @if (isset($alumnos[0]->nombres))
                             @foreach ($alumnos as $alumno)
+                                <p><b>Dni: </b>{{ $alumno->dni }}</p>
                                 <p><b>Nombre: </b>{{ $alumno->nombres . ' ' . $alumno->apellidos }}</p>
 
                                 @if ($alumno->link)
@@ -91,6 +92,10 @@
                                     {{ $alumno->situacioncuota }}
                                     </p>
                                 @endif
+
+                                @foreach ($alumno->alumno_info_data as $alumno_info_data)
+                                    <p><b>{{ $alumno_info_data->alumno_info_field->name.":" }}</b> {{ $alumno_info_data->data }}</p>
+                                @endforeach
 
                                 <div class="col-7 row d-block">
                                     <a class="btn btn-primary" href="{{ route('alumnos.edit', $alumno->id) }}">Editar</a>

@@ -3,6 +3,7 @@
 namespace App\Exports;
 
 use App\Models\Alumno;
+use App\Models\Alumno_info_field;
 use Carbon\Traits\Date;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromCollection;
@@ -18,7 +19,8 @@ class AlumnosExport implements FromView, WithMapping, ShouldAutoSize
     public function view(): View
     {
         return view('export', [
-            'alumnos' => Alumno::all()
+            'alumnos' => Alumno::all(),
+            'alumno_info_fields' => Alumno_info_field::all()
         ]);
     }
     public function map($alumno): array

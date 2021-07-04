@@ -274,6 +274,24 @@ return [
                     'url'  => 'alumnos/asistencia',
                     'icon' => 'fa-fw fa fa-history',
                 ],
+            ],
+
+        ],
+        [
+            'text'        => 'Campos Adicionales',
+            'icon'        => 'fa-fw fa fa-plus',
+            'label_color' => 'success',
+            'submenu' => [
+                [
+                    'text' => 'Listado',
+                    'url'  => 'camposAdicionales',
+                    'icon' => 'fa-fw fa fa-list-ul',
+                ],
+                [
+                    'text' => 'Nueva Categoria',
+                    'url'  => 'camposAdicionales/crear',
+                    'icon' => 'fa-fw fa fa-save',
+                ],
 
             ],
 

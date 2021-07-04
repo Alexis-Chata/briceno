@@ -1,8 +1,8 @@
 <x-guest-layout>
-    <div class="min_height_22r flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
+    <div class="min_height_22r flex flex-col sm:justify-center items-center pt-6">
         <div class="flex flex-col items-center">
             <x-jet-authentication-card-logo />
-            <p class="py-2 text-white" style="font-size: x-large;">Sistema de Gestion de Busqueda</p>
+            <p class="py-2 text-white text-center" style="font-size: x-large;">Sistema de Gestion de Busqueda</p>
         </div>
 
         <div class="w-full sm:max-w-md mt-1 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
@@ -32,7 +32,7 @@
     </div>
 
     @if (!empty($alumnos))
-        <div class="min_height_6r flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
+        <div class="min_height_6r flex flex-col sm:justify-center items-center pt-6">
             <div class="w-full sm:max-w-md px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg text-center">
                 <h2 class="mx-auto my-3"><b>Resultado...</b></h2>
                 @if (isset($alumnos[0]->nombres))
@@ -42,7 +42,7 @@
                         <br/>
                         @if ($alumno->link)
                         <p class="font-black">Link para la clase en vivo:</p>
-                        <a href="{{ $alumno->link }}">{{ $alumno->link }}</a></p>
+                        <a href="{{ $alumno->link }}">{{ $alumno->link }}</a>
                         @endif
 
                         @if ($alumno->codigo)
@@ -69,12 +69,19 @@
                         @if ($alumno->fechavencimientocuota)
                             <p class="font-black">fecha de vencimiento de cuota:</p>
                             <p>{{ $alumno->fechavencimientocuota }}</p>
-                            <p>{{ $alumno->resta }}</p>
                         @endif
                         @if ($alumno->url)
                             <p class="font-black">Link:</p>
-                            <a href="{{ $alumno->url }}">{{ $alumno->url }}</a></p>
+                            <a href="{{ $alumno->url }}">{{ $alumno->url }}</a>
                         @endif
+                        @foreach ($alumno->alumno_info_data as $alumno_info_data)
+                            <p class="font-black">{{ $alumno_info_data->alumno_info_field->name.":" }}</p>
+                            @if ($alumno_info_data->alumno_info_field->param4)
+                                <a href="{{ $alumno_info_data->data }}">{{ $alumno_info_data->data }}</a>
+                            @else
+                                <p>{{ $alumno_info_data->data }}</p>
+                            @endif
+                        @endforeach
 
                         @if (isset($alumno->modal) &&  Str::upper($alumno->situacioncuota)!=Str::upper('cancelado'))
                             <div class="modal fade show block" id="modal_default" style="z-index: 1050;">
