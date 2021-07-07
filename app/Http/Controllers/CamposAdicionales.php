@@ -84,7 +84,7 @@ class CamposAdicionales extends Controller
     public function store2(Request $request)
     {
         $request->validate([
-            'shortname' => 'required|alpha_dash|unique:Alumno_info_fields,shortname',
+            'shortname' => 'required|alpha_dash|unique:alumno_info_fields,shortname',
             'name' => 'required'
         ]);
 
@@ -192,7 +192,7 @@ class CamposAdicionales extends Controller
     public function update2(Request $request, $id)
     {
         $request->validate([
-            'shortname' => 'required|alpha_dash|unique:Alumno_info_fields,shortname,'.$id,
+            'shortname' => 'required|alpha_dash|unique:alumno_info_fields,shortname,'.$id,
             'name' => 'required'
         ]);
         $datos = Alumno_info_field::all();
